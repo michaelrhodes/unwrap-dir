@@ -1,0 +1,37 @@
+{
+  "name": "unwrap-dir",
+  "version": "1.0.0",
+  "description": "remove top-level wrapping directories",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test.js"
+  },
+  "dependencies": {
+    "mv": "~2.0.3",
+    "rimraf": "~2.2.8",
+    "run-parallel": "~1.0.0",
+    "run-waterfall": "~1.0.2"
+  },
+  "devDependencies": {
+    "mkdirp": "~0.5.0",
+    "tape": "~3.5.0",
+    "tape-catch": "~1.0.4",
+    "touch": "~0.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:michaelrhodes/unwrap-dir.git"
+  },
+  "keywords": [
+    "unwrap",
+    "dir",
+    "wrapping",
+    "directory"
+  ],
+  "author": "Michael Rhodes",
+  "license": "MIT",
+  "homepage": "https://github.com/michaelrhodes/unwrap-dir",
+  "bugs": {
+    "url": "https://github.com/michaelrhodes/unwrap-dir/issues"
+  }
+}
