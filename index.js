@@ -2,6 +2,7 @@ var fs = require('fs')
 var path = require('path')
 var waterfall = require('run-waterfall')
 var parallel = require('run-parallel')
+var dir = require('is-dir')
 var rm = require('rimraf')
 var mv = require('mv')
 
@@ -12,7 +13,12 @@ module.exports = function (entry, cb) {
       return cb(null, false)
 
     var wrapper = path.join(entry, contents[0])
-    waterfall([read, move, clean], end)
+
+    dir(wrapper, function (err, yes) {
+      if (err) return cb(err)
+      if (!yes) return cb(null, false) 
+      waterfall([read, move, clean], end)
+    })
 
     function read (next) {
       fs.readdir(wrapper, next)

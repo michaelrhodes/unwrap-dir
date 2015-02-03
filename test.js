@@ -38,6 +38,16 @@ test('it works', function (assert) {
   })
 })
 
+test('single entry is not a directory', function (assert) {
+  assert.plan(2)
+  setup()
+  unwrap(dirs[0], function (err, unwrapped) {
+    assert.equal(err, null)
+    assert.equal(unwrapped, false)
+    teardown()
+  })
+})
+
 function setup () {
   teardown()
   mkdir(wrapper)
@@ -47,6 +57,8 @@ function setup () {
   files.forEach(function (file) {
     touch(file)
   })
+  // Single-entry; not a directory.
+  touch(path.join(dirs[0], 'four'))
 }
 
 function teardown () {
